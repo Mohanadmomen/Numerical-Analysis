@@ -8,19 +8,19 @@ int main() {
     ExpressionParser parser;
 
     // Example expression: 1/(x+1)
-    std::string ahmed;
-    std::cin >> ahmed;
+    
 
-    std::string expression = ahmed;
+    std::string expression;
+    std::cin >> expression;
 
     //// Generate C++ function
     //std::string cppFunction = parser.generateCppFunction(expression);
     //std::cout << "Generated C++ function:\n" << cppFunction << std::endl;
 
+    
 
-
-    double moh = trapezoidalIntegration(parser, ahmed, 0,3,6);
-    std::cout << std::setprecision(10) << moh << '\n';
+    double result = trapezoidalIntegration(parser, expression, 0,3,6);
+    std::cout << std::setprecision(10) << result << '\n';
     //std::cout << n << "\t" << result << std::endl;
 
 
