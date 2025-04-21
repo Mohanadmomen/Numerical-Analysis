@@ -10,18 +10,22 @@ int main() {
     // Example expression: 1/(x+1)
     
 
-    std::string expression;
-    std::cin >> expression;
+    std::string expression="x^2 - 4";
+    //std::getline(std::cin, expression);
 
     //// Generate C++ function
     //std::string cppFunction = parser.generateCppFunction(expression);
     //std::cout << "Generated C++ function:\n" << cppFunction << std::endl;
 
     
+    /*parser.setVariable("x", 1);
+    std::cout << parser.evaluate("exp(-x^2)");*/
 
-    double result = trapezoidalIntegration(parser, expression, 0,3,6);
-    std::cout << std::setprecision(10) << result << '\n';
+    /*double result = trapezoidalIntegration(parser, "exp(0-x^2)", 0, 1, 10);
+    std::cout << std::setprecision(10) << result << '\n';*/
     //std::cout << n << "\t" << result << std::endl;
+
+
 
 
 
@@ -41,6 +45,24 @@ int main() {
     //        std::cout << "Error: " << e.what() << std::endl;
     //    }
     //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return 0;
 }
