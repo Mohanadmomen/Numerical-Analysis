@@ -10,7 +10,7 @@ class ChapterFour {
 private:
     ExpressionParser parser;
 
-    // دالة مساعدة لتقييم الدالة عند نقطة محددة
+    // Helper function to evaluate the expression at a specific point (x, y)
     double evaluateFunction(const std::string& expression, double x, double y) {
         parser.setVariable("x", x);
         parser.setVariable("y", y);
@@ -20,37 +20,37 @@ private:
 public:
     ChapterFour() {}
 
-    // هيكل لتخزين نقاط الحل
+    // Structure to store the solution points
     struct Solution {
         std::vector<double> x_values;
         std::vector<double> y_values;
     };
 
-    // طريقة أويلر لحل معادلة تفاضلية من الدرجة الأولى: dy/dx = f(x,y)
+    // Euler's Method for solving first-order differential equations: dy/dx = f(x,y)
     Solution euler(const std::string& odeExpression, double x0, double y0, double h, double xEnd) {
         Solution result;
 
-        // تهيئة متجهات الحل بالشروط الابتدائية
+        // Initialize solution vectors with initial conditions
         result.x_values.push_back(x0);
         result.y_values.push_back(y0);
 
         double x = x0;
         double y = y0;
 
-        // الاستمرار حتى نصل أو نتجاوز نقطة النهاية
+        // Continue until we reach or exceed the final x value
         while (x < xEnd - 1e-10) {
-            // تعيين المتغيرات في المحلل
+            // Set variables in the parser
             parser.setVariable("x", x);
             parser.setVariable("y", y);
 
-            // حساب الميل باستخدام f(x,y)
+            // Compute the slope using f(x,y)
             double slope = parser.evaluate(odeExpression);
 
-            // تحديث أويلر: y_next = y + h * f(x,y)
+            // Euler update: y_next = y + h * f(x,y)
             y = y + h * slope;
             x = x + h;
 
-            // تخزين نقاط الحل
+            // Store solution points
             result.x_values.push_back(x);
             result.y_values.push_back(y);
         }
@@ -58,39 +58,37 @@ public:
         return result;
     }
 
-    // طريقة أويلر المعدلة (طريقة هيون) لحل معادلة تفاضلية من الدرجة الأولى: dy/dx = f(x,y)
+    // Modified Euler Method (Heun's Method) for solving first-order differential equations: dy/dx = f(x,y)
     Solution modifiedEuler(const std::string& odeExpression, double x0, double y0, double h, double xEnd) {
         Solution result;
 
-        // تهيئة متجهات الحل بالشروط الابتدائية
+        // Initialize solution vectors with initial conditions
         result.x_values.push_back(x0);
         result.y_values.push_back(y0);
 
         double x = x0;
         double y = y0;
 
-        // الاستمرار حتى نصل أو نتجاوز نقطة النهاية
+        // Continue until we reach or exceed the final x value
         while (x < xEnd - 1e-10) {
-            // تعيين المتغيرات في المحلل للنقطة الحالية
+            // Step 1: Compute k1 = f(x, y)
             parser.setVariable("x", x);
             parser.setVariable("y", y);
-
-            // الخطوة 1: حساب k1 = f(x,y)
             double k1 = parser.evaluate(odeExpression);
 
-            // الخطوة 2: حساب المتنبئ: y* = y + h * k1
+            // Step 2: Predictor: y* = y + h * k1
             double y_pred = y + h * k1;
 
-            // الخطوة 3: حساب k2 = f(x+h, y*)
+            // Step 3: Compute k2 = f(x + h, y*)
             parser.setVariable("x", x + h);
             parser.setVariable("y", y_pred);
             double k2 = parser.evaluate(odeExpression);
 
-            // الخطوة 4: تحديث أويلر المعدل: y_next = y + h * (k1 + k2) / 2
+            // Step 4: Modified Euler update: y_next = y + h * (k1 + k2) / 2
             y = y + h * (k1 + k2) / 2;
             x = x + h;
 
-            // تخزين نقاط الحل
+            // Store solution points
             result.x_values.push_back(x);
             result.y_values.push_back(y);
         }
@@ -98,7 +96,7 @@ public:
         return result;
     }
 
-    // طباعة الحل على وحدة التحكم
+    // Print the solution to the console
     void printSolution(const Solution& solution, const std::string& methodName) {
         std::cout << "\n" << methodName << " Solution:\n";
         std::cout << "-------------------\n";
@@ -111,7 +109,7 @@ public:
         std::cout << "-------------------\n";
     }
 
-    // الحصول على سلسلة الحل المنسقة
+    // Get the solution as a formatted string
     std::string getSolutionString(const Solution& solution, const std::string& methodName) {
         std::string result = methodName + " Solution:\n\n";
         result += "   x   |   y   \n";
@@ -126,7 +124,7 @@ public:
         return result;
     }
 
-    // مقارنة النتائج بين طريقتي أويلر وأويلر المعدلة
+    // Compare the results between Euler and Modified Euler methods
     void compareResults(const Solution& eulerSolution, const Solution& modifiedEulerSolution) {
         std::cout << "\nComparison between Euler and Modified Euler methods:\n";
         std::cout << "-------------------------------------------------------\n";
