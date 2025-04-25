@@ -34,6 +34,9 @@ private:
     const double PI = 3.14159265358979323846;
     const double E = 2.71828182845904523536;
 
+    // Small epsilon value for comparing doubles
+    const double EPSILON = 1e-12;
+
     // Operator precedence
     std::map<char, int> precedence = {
         {'+', 1}, {'-', 1},
@@ -41,14 +44,44 @@ private:
         {'^', 3}
     };
 
+    // Helper function to check if a value is approximately equal to a multiple of PI
+    bool isMultipleOfPi(double value) {
+        double ratio = value / PI;
+        double nearestInt = round(ratio);
+        return fabs(ratio - nearestInt) < EPSILON;
+    }
+
     void setupFunctions() {
-        functions["sin"] = [](const std::vector<double>& args) { return sin(args[0]); };
+        // Modified sin function to handle multiples of PI exactly
+        functions["sin"] = [this](const std::vector<double>& args) {
+            // Check if the argument is close to a multiple of PI
+            if (isMultipleOfPi(args[0])) {
+                // sin(n*PI) is exactly 0 for integer n
+                return 0.0;
+            }
+            return sin(args[0]);
+            };
         functionArgCount["sin"] = 1;
 
-        functions["cos"] = [](const std::vector<double>& args) { return cos(args[0]); };
+        // Modified cos function to handle multiples of PI exactly
+        functions["cos"] = [this](const std::vector<double>& args) {
+            // Check if the argument is close to a multiple of PI
+            if (isMultipleOfPi(args[0])) {
+                // cos(n*PI) is 1 for even n and -1 for odd n
+                return (fmod(round(args[0] / PI), 2.0) == 0) ? 1.0 : -1.0;
+            }
+            return cos(args[0]);
+            };
         functionArgCount["cos"] = 1;
 
-        functions["tan"] = [](const std::vector<double>& args) { return tan(args[0]); };
+        functions["tan"] = [this](const std::vector<double>& args) {
+            // Check if the argument is close to a multiple of PI
+            if (isMultipleOfPi(args[0])) {
+                // tan(n*PI) is exactly 0 for integer n
+                return 0.0;
+            }
+            return tan(args[0]);
+            };
         functionArgCount["tan"] = 1;
 
         functions["sqrt"] = [](const std::vector<double>& args) { return sqrt(args[0]); };
@@ -333,11 +366,11 @@ public:
         return evaluateRPN(rpn);
     }
 
-    // Generate C++ function from expression
-    std::string generateCppFunction(const std::string& expression, const std::string& funcName = "mathFunction") {
-        std::string code = "double " + funcName + "(double x) {\n";
-        code += "    return " + expression + ";\n";
-        code += "}\n";
-        return code;
+    // Evaluate expression with specific x and y values
+    double evaluate(const std::string& expression, double x_val, double y_val) {
+        // Set x and y variables before evaluation
+        setVariable("x", x_val);
+        setVariable("y", y_val);
+        return evaluate(expression);
     }
 };
