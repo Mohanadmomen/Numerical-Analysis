@@ -1,4 +1,3 @@
-@@ -0,0 +1,57 @@
 # Numerical-Analysis
 
 Welcome to the Numerical Analysis repository! This project covers a range of numerical methods and techniques, categorized into five main chapters. These methods are essential for solving various mathematical problems that arise in real-world applications.
