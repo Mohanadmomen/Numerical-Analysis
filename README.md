@@ -1,54 +1,58 @@
-# Numerical Analysis Tool
+@@ -0,0 +1,57 @@
+# Numerical-Analysis
 
-**Numerical Analysis Tool** is a cross‑platform Qt/C++ application that provides interactive, visual implementations of fundamental numerical methods. Whether you need to find roots of nonlinear equations, solve ODEs, interpolate data, approximate integrals, or fit curves, this tool has you covered—all in an easy‑to‑use tabbed interface.
+Welcome to the Numerical Analysis repository! This project covers a range of numerical methods and techniques, categorized into five main chapters. These methods are essential for solving various mathematical problems that arise in real-world applications.
 
-## Features
+## 📚 Chapters Overview
 
-- **Root Finding**  
-  - Bisection Method  
-  - Secant Method  
-  - Newton–Raphson Method  
+### Chapter 1: Root Finding Methods
+This chapter includes methods for finding the roots of functions. The key techniques covered are:
 
-- **Ordinary Differential Equations (ODE) Solver**  
-  - Euler’s Method  
-  - Modified Euler’s Method  
+- **Bisection Method**: A reliable method for finding the root of a function within a specified interval.
+- **Newton-Raphson Method**: A fast convergence method for finding roots using derivatives.
+- **Secant Method**: A method similar to Newton's, but does not require the calculation of derivatives.
 
-- **Polynomial Interpolation**  
-  - Lagrange Interpolation  
-  - Newton’s Divided Difference  
+### Chapter 2: Interpolation
+In this chapter, we explore various interpolation methods that estimate values between known data points:
+- **Lagrange Interpolation**: A polynomial interpolation method using Lagrange polynomials.
+- **Newton Interpolation (Forward and Backward)**: Techniques to build interpolation polynomials based on Newton’s formula, both for forward and backward differences.
 
-- **Numerical Integration**  
-  - Trapezoidal Rule  
-  - Simpson’s 1/3 Rule  
-  - Simpson’s 3/8 Rule  
-  - Support for function input, 2D data tables, or X‑only tables  
+### Chapter 3: Numerical Integration
+This chapter introduces techniques for approximating definite integrals:
+- **Trapezoidal Rule**: A simple method for approximating the integral using trapezoids.
+- **Simpson's 1/3 Rule**: A more accurate method for integration using quadratic approximations.
+- **Simpson's 3/8 Rule**: Another integration rule that improves accuracy by using cubic approximations.
 
-- **Curve Fitting** (Least Squares)  
-  - Linear  
-  - Logarithmic  
-  - Exponential  
-  - Power  
-  - Quadratic  
-  - Cubic  
+### Chapter 4: Numerical Solution of Ordinary Differential Equations (ODEs)
+This chapter focuses on solving ODEs using:
+- **Euler's Method**: A straightforward approach to solving initial value problems.
+- **Modified Euler's Method**: An improved version of Euler’s method that enhances accuracy.
 
-- **Validation & Ease‑of‑Use**  
-  - Real‑time input validation with red‑border error feedback  
-  - Dynamic enabling/disabling of Calculate buttons  
-  - Clear result display and error messages  
+### Chapter 5: Curve Fitting Methods
+In this chapter, we cover various methods for fitting a curve to a set of data points:
+- **Linear Regression**: Fitting a straight line to the data.
+- **Exponential Fit**: Fitting an exponential curve to the data.
+- **Logarithmic Fit**: Fitting a logarithmic curve to the data.
+- **Power Fit**: Fitting a power-law curve to the data.
+- **Quadratic Fit**: Fitting a parabolic curve to the data.
 
-## Getting Started
+## 🖥️ GUI with Qt
 
-### Prerequisites
+This project also features a **Qt-based GUI** that allows users to interact with the numerical methods more easily. The GUI provides the following features:
 
-- Qt 5 or 6  
-- C++17 compiler (GCC, Clang, MSVC)  
-- CMake (or Qt qmake)  
+- **Input Fields**: Enter the necessary parameters for the selected method, such as intervals for root-finding methods, data points for interpolation, and limits for integration methods.
+- **Result Display**: View the results of the numerical methods, including graphical representations of the methods (e.g., root-finding results, interpolation curves, integration areas).
+- **Plotting**: Visualization of interpolation curves, integration regions, and curve fitting models.
+- **Interactive Controls**: Modify parameters dynamically and observe how the results change in real-time.
 
-### Building
+## 🛠️ Technologies Used
 
-```bash
-git clone https://github.com/<your‑username>/numerical-analysis-tool.git
-cd numerical-analysis-tool
-mkdir build && cd build
-cmake ..           # or qmake ../Numerical_Analysis_Tool.pro
-make
+- **C++**: The primary programming language for implementing numerical methods and the GUI.
+- **Qt5/Qt6**: Framework for building the GUI.
+
+## 📚 Learning Objectives
+The project aims to:
+
+- Understand and implement fundamental numerical methods for solving mathematical problems.
+
+- Develop and use a GUI to interact with numerical methods and visualize results.
