@@ -1,0 +1,2040 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>784</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Numerical Analysis Tool</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #f5f7fa;
+}
+QTabWidget::pane {
+    border: 1px solid #e0e4e8;
+    background-color: white;
+    border-radius: 4px;
+}
+QTabBar::tab {
+    background-color: #f0f2f5;
+    border: 1px solid #e0e4e8;
+    border-bottom: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 8px 16px;
+    margin-right: 2px;
+    color: #5a6474;
+    font-weight: 500;
+}
+QTabBar::tab:selected {
+    background-color: white;
+    border-bottom: none;
+    color: #3d74bf;
+}
+QTabBar::tab:hover:!selected {
+    background-color: #e5e8ed;
+}
+QGroupBox {
+    border: 1px solid #e0e4e8;
+    border-radius: 6px;
+    margin-top: 1.5ex;
+    background-color: white;
+    font-weight: 500;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 0 5px;
+    color: #5a6474;
+}
+QLabel {
+    color:rgb(31, 31, 176);
+    font-weight: 500;
+}
+QLineEdit {
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px;
+    background-color: #f9fafb;
+    selection-background-color: #3d74bf;
+}
+QLineEdit:focus {
+    border: 1px solid #3d74bf;
+    background-color: white;
+}
+QPushButton {
+    background-color: #3d74bf;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-weight: 500;
+}
+QPushButton:hover {
+    background-color: #2c5a9f;
+}
+QPushButton:pressed {
+    background-color: #1e4380;
+}
+QPushButton:disabled {
+    background-color: #d1d5db;
+    color: #9ca3af;
+}
+QRadioButton {
+    color: #374151;
+    spacing: 8px;
+}
+QRadioButton::indicator {
+    width: 16px;
+    height: 16px;
+}
+QComboBox {
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px;
+    background-color: #f9fafb;
+    selection-background-color: #3d74bf;
+    min-width: 6em;
+}
+QComboBox:focus {
+    border: 1px solid #3d74bf;
+    background-color: white;
+}
+QComboBox::drop-down {
+    border: none;
+    width: 24px;
+}
+QScrollBar:vertical {
+    border: none;
+    background-color: #f1f3f5;
+    width: 10px;
+    margin: 0px;
+}
+QScrollBar::handle:vertical {
+    background-color: #c1c8d1;
+    border-radius: 5px;
+    min-height: 20px;
+}
+QScrollBar::handle:vertical:hover {
+    background-color: #a3acb6;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+QTextEdit {
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px;
+    background-color: #f9fafb;
+    selection-background-color: #3d74bf;
+}
+QTextEdit:focus {
+    border: 1px solid #3d74bf;
+    background-color: white;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>16</number>
+    </property>
+    <property name="leftMargin">
+     <number>24</number>
+    </property>
+    <property name="topMargin">
+     <number>24</number>
+    </property>
+    <property name="rightMargin">
+     <number>24</number>
+    </property>
+    <property name="bottomMargin">
+     <number>24</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="titleLabel">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <fontweight>Medium</fontweight>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #3d74bf;</string>
+      </property>
+      <property name="text">
+       <string>Numerical Analysis Tool</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="subtitleLabel">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <fontweight>Medium</fontweight>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #6b7280;</string>
+      </property>
+      <property name="text">
+       <string>Advanced Mathematical Solutions</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="NumericalMethodsTab">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="documentMode">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="rootFindingTab">
+       <attribute name="title">
+        <string>Root Finding</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QGroupBox" name="inputGroupBox">
+          <property name="title">
+           <string>Input Parameters</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>15</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>15</number>
+           </property>
+           <property name="bottomMargin">
+            <number>15</number>
+           </property>
+           <item>
+            <layout class="QFormLayout" name="formLayout">
+             <property name="horizontalSpacing">
+              <number>15</number>
+             </property>
+             <property name="verticalSpacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="functionLabel">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <fontweight>Medium</fontweight>
+                </font>
+               </property>
+               <property name="text">
+                <string>Function:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="functionLineEdit">
+               <property name="placeholderText">
+                <string>e.g., x^2 - 4</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="methodGroupBox">
+             <property name="title">
+              <string>Calculation Method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <property name="spacing">
+               <number>10</number>
+              </property>
+              <property name="leftMargin">
+               <number>15</number>
+              </property>
+              <property name="topMargin">
+               <number>15</number>
+              </property>
+              <property name="rightMargin">
+               <number>15</number>
+              </property>
+              <property name="bottomMargin">
+               <number>15</number>
+              </property>
+              <item>
+               <widget class="QRadioButton" name="bisectionRadioButton">
+                <property name="text">
+                 <string>Bisection Method</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="secantRadioButton">
+                <property name="text">
+                 <string>Secant Method</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="newtonRadioButton_2">
+                <property name="text">
+                 <string>Newton Method</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="calculateButton">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Expanding</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="outputGroupBox">
+          <property name="title">
+           <string>Results</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>15</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>15</number>
+           </property>
+           <property name="bottomMargin">
+            <number>15</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="resultsFrame">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QFormLayout" name="formLayout_2">
+              <property name="horizontalSpacing">
+               <number>16</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>16</number>
+              </property>
+              <property name="leftMargin">
+               <number>16</number>
+              </property>
+              <property name="topMargin">
+               <number>16</number>
+              </property>
+              <property name="rightMargin">
+               <number>16</number>
+              </property>
+              <property name="bottomMargin">
+               <number>16</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="methodLabel">
+                <property name="font">
+                 <font>
+                  <fontweight>DemiBold</fontweight>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Method:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="methodResultLabel">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="rootLabel">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Root:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="rootResultLabel">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="detailsTextEdit">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>Detailed calculation steps will appear here...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+          <zorder>detailsTextEdit</zorder>
+          <zorder>resultsFrame</zorder>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="interpolationTab">
+       <attribute name="title">
+        <string>Interpolation</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QGroupBox" name="inputGroupBox_2">
+          <property name="title">
+           <string>Input Parameters</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>15</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>15</number>
+           </property>
+           <property name="bottomMargin">
+            <number>15</number>
+           </property>
+           <item>
+            <layout class="QFormLayout" name="formLayout_3">
+             <property name="horizontalSpacing">
+              <number>15</number>
+             </property>
+             <property name="verticalSpacing">
+              <number>5</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="xValuesLabel">
+               <property name="font">
+                <font>
+                 <fontweight>Medium</fontweight>
+                </font>
+               </property>
+               <property name="text">
+                <string>X Values:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="xValuesLineEdit">
+               <property name="placeholderText">
+                <string>e.g., 1,2,3,4</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="yValuesLabel">
+               <property name="text">
+                <string>Y Values:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="yValuesLineEdit">
+               <property name="placeholderText">
+                <string>e.g., 1,4,9,16</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="interpolateLabel">
+               <property name="text">
+                <string>Interpolate at:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="interpolateLineEdit">
+               <property name="placeholderText">
+                <string>e.g., 2.5</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="methodGroupBox_2">
+             <property name="title">
+              <string>Interpolation Method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="spacing">
+               <number>10</number>
+              </property>
+              <property name="leftMargin">
+               <number>15</number>
+              </property>
+              <property name="topMargin">
+               <number>15</number>
+              </property>
+              <property name="rightMargin">
+               <number>15</number>
+              </property>
+              <property name="bottomMargin">
+               <number>15</number>
+              </property>
+              <item>
+               <widget class="QRadioButton" name="lagrangeRadioButton">
+                <property name="text">
+                 <string>Lagrange Interpolation</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="newtonRadioButton">
+                <property name="text">
+                 <string>Newton's Interpolation</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="calculateButton_2">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="outputGroupBox_2">
+          <property name="title">
+           <string>Results</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>15</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>15</number>
+           </property>
+           <property name="bottomMargin">
+            <number>15</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="resultsFrame_2">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QFormLayout" name="formLayout_4">
+              <property name="horizontalSpacing">
+               <number>16</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>16</number>
+              </property>
+              <property name="leftMargin">
+               <number>16</number>
+              </property>
+              <property name="topMargin">
+               <number>16</number>
+              </property>
+              <property name="rightMargin">
+               <number>16</number>
+              </property>
+              <property name="bottomMargin">
+               <number>16</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="methodLabel_2">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Method:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="methodResultLabel_2">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="valueLabel">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Interpolated Value:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="valueResultLabel">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="errorLabel_2">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Error Estimate:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="errorResultLabel_2">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="detailsTextEdit_2">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>Detailed calculation steps will appear here...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="integrationTab">
+       <attribute name="title">
+        <string>Integration</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QGroupBox" name="inputGroupBox_3">
+          <property name="title">
+           <string>Input Parameters</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>15</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>15</number>
+           </property>
+           <property name="bottomMargin">
+            <number>15</number>
+           </property>
+           <item>
+            <layout class="QFormLayout" name="formLayout_5">
+             <property name="horizontalSpacing">
+              <number>15</number>
+             </property>
+             <property name="verticalSpacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="functionLabel_2">
+               <property name="text">
+                <string>Function:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="functionLineEdit_2">
+               <property name="placeholderText">
+                <string>e.g., x^2</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="lowerLimitLabel">
+               <property name="text">
+                <string>Lower Limit:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="lowerLimitLineEdit">
+               <property name="placeholderText">
+                <string>e.g., 0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="upperLimitLabel">
+               <property name="text">
+                <string>Upper Limit:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="upperLimitLineEdit">
+               <property name="placeholderText">
+                <string>e.g., 1</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QTabWidget" name="tabWidget_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="tabShape">
+              <enum>QTabWidget::TabShape::Rounded</enum>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>12</width>
+               <height>12</height>
+              </size>
+             </property>
+             <widget class="QWidget" name="tab_3">
+              <attribute name="title">
+               <string>Option 1</string>
+              </attribute>
+              <layout class="QFormLayout" name="formLayout_11">
+               <item row="0" column="0" colspan="2">
+                <widget class="QFrame" name="frame">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(255, 255, 255);</string>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Shape::Box</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Shadow::Raised</enum>
+                 </property>
+                 <property name="lineWidth">
+                  <number>0</number>
+                 </property>
+                 <layout class="QFormLayout" name="formLayout_10">
+                  <property name="labelAlignment">
+                   <set>Qt::AlignmentFlag::AlignCenter</set>
+                  </property>
+                  <property name="formAlignment">
+                   <set>Qt::AlignmentFlag::AlignCenter</set>
+                  </property>
+                  <property name="horizontalSpacing">
+                   <number>0</number>
+                  </property>
+                  <property name="verticalSpacing">
+                   <number>0</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>10</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>5</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>10</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>5</number>
+                  </property>
+                  <item row="0" column="0" colspan="2">
+                   <layout class="QFormLayout" name="formLayout_20">
+                    <property name="labelAlignment">
+                     <set>Qt::AlignmentFlag::AlignCenter</set>
+                    </property>
+                    <property name="formAlignment">
+                     <set>Qt::AlignmentFlag::AlignCenter</set>
+                    </property>
+                    <property name="horizontalSpacing">
+                     <number>15</number>
+                    </property>
+                    <property name="verticalSpacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="intervalsLabel_3">
+                      <property name="text">
+                       <string>n Value:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QLineEdit" name="nValuesLineEdit_3">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(249, 250, 251);</string>
+                      </property>
+                      <property name="placeholderText">
+                       <string>e.g., 10</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_4">
+              <attribute name="title">
+               <string>Option 2</string>
+              </attribute>
+              <layout class="QFormLayout" name="formLayout_15">
+               <item row="0" column="0" colspan="2">
+                <widget class="QFrame" name="frame_2">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(255, 255, 255);</string>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Shape::Box</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Shadow::Raised</enum>
+                 </property>
+                 <property name="lineWidth">
+                  <number>0</number>
+                 </property>
+                 <layout class="QFormLayout" name="formLayout_14">
+                  <property name="labelAlignment">
+                   <set>Qt::AlignmentFlag::AlignCenter</set>
+                  </property>
+                  <property name="formAlignment">
+                   <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+                  </property>
+                  <property name="horizontalSpacing">
+                   <number>0</number>
+                  </property>
+                  <property name="verticalSpacing">
+                   <number>0</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>10</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>5</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>10</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>5</number>
+                  </property>
+                  <item row="0" column="0" colspan="2">
+                   <layout class="QFormLayout" name="formLayout_13">
+                    <property name="labelAlignment">
+                     <set>Qt::AlignmentFlag::AlignCenter</set>
+                    </property>
+                    <property name="formAlignment">
+                     <set>Qt::AlignmentFlag::AlignCenter</set>
+                    </property>
+                    <property name="horizontalSpacing">
+                     <number>15</number>
+                    </property>
+                    <property name="verticalSpacing">
+                     <number>3</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="functionLabel_5">
+                      <property name="text">
+                       <string>X Values:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QLineEdit" name="xValuesLineEdit_5">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(249, 250, 251);</string>
+                      </property>
+                      <property name="placeholderText">
+                       <string>e.g., 1,2,3,4</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="upperLimitLabel_2">
+                      <property name="text">
+                       <string>Y Values:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QLineEdit" name="yValuesLimitLineEdit_2">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(249, 250, 251);</string>
+                      </property>
+                      <property name="placeholderText">
+                       <string>e.g., 1,2,3,4</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="intervalsLabel_2">
+                      <property name="text">
+                       <string>n Value:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QLineEdit" name="nValuesLineEdit_2">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(249, 250, 251);</string>
+                      </property>
+                      <property name="placeholderText">
+                       <string>e.g., 10</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_5">
+              <attribute name="title">
+               <string>Option 3</string>
+              </attribute>
+              <layout class="QFormLayout" name="formLayout_18">
+               <item row="0" column="0" colspan="2">
+                <widget class="QFrame" name="frame_3">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(255, 255, 255);</string>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Shape::Box</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Shadow::Raised</enum>
+                 </property>
+                 <property name="lineWidth">
+                  <number>0</number>
+                 </property>
+                 <layout class="QFormLayout" name="formLayout_17">
+                  <property name="labelAlignment">
+                   <set>Qt::AlignmentFlag::AlignCenter</set>
+                  </property>
+                  <property name="formAlignment">
+                   <set>Qt::AlignmentFlag::AlignCenter</set>
+                  </property>
+                  <property name="horizontalSpacing">
+                   <number>0</number>
+                  </property>
+                  <property name="verticalSpacing">
+                   <number>0</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>10</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>5</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>10</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>5</number>
+                  </property>
+                  <item row="0" column="0" colspan="2">
+                   <layout class="QFormLayout" name="formLayout_16">
+                    <property name="horizontalSpacing">
+                     <number>15</number>
+                    </property>
+                    <property name="verticalSpacing">
+                     <number>5</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="functionLabel_6">
+                      <property name="text">
+                       <string>X Values:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QLineEdit" name="xValuesLineEdit_6">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(249, 250, 251);</string>
+                      </property>
+                      <property name="placeholderText">
+                       <string>e.g., 1,2,3,4</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="intervalsLabel_4">
+                      <property name="text">
+                       <string>n Value:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QLineEdit" name="nValuesLineEdit_4">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(249, 250, 251);</string>
+                      </property>
+                      <property name="placeholderText">
+                       <string>e.g., 10</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="methodGroupBox_3">
+             <property name="title">
+              <string>Integration Method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <property name="spacing">
+               <number>7</number>
+              </property>
+              <property name="leftMargin">
+               <number>15</number>
+              </property>
+              <property name="topMargin">
+               <number>15</number>
+              </property>
+              <property name="rightMargin">
+               <number>15</number>
+              </property>
+              <property name="bottomMargin">
+               <number>15</number>
+              </property>
+              <item>
+               <widget class="QRadioButton" name="trapezoidRadioButton">
+                <property name="text">
+                 <string>Trapezoidal Rule</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="simpson_1RadioButton">
+                <property name="text">
+                 <string>Simpson's (1/3) Rule</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="simpson_2RadioButton">
+                <property name="text">
+                 <string>Simpson's (3/8) Rule</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="calculateButton_3">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Expanding</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>30</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="outputGroupBox_3">
+          <property name="title">
+           <string>Results</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>15</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>15</number>
+           </property>
+           <property name="bottomMargin">
+            <number>15</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="resultsFrame_3">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QFormLayout" name="formLayout_6">
+              <property name="horizontalSpacing">
+               <number>16</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>16</number>
+              </property>
+              <property name="leftMargin">
+               <number>16</number>
+              </property>
+              <property name="topMargin">
+               <number>16</number>
+              </property>
+              <property name="rightMargin">
+               <number>16</number>
+              </property>
+              <property name="bottomMargin">
+               <number>16</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="methodLabel_3">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Method:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="methodResultLabel_3">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="integralLabel">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Integral Value:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="integralResultLabel">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="errorLabel_3">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Error Estimate:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="errorResultLabel_3">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="detailsTextEdit_3">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>Detailed calculation steps will appear here...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="eulerTab">
+       <attribute name="title">
+        <string>Euler</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QGroupBox" name="inputGroupBox_4">
+          <property name="title">
+           <string>Input Parameters</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>15</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>15</number>
+           </property>
+           <property name="bottomMargin">
+            <number>15</number>
+           </property>
+           <item>
+            <layout class="QFormLayout" name="formLayout_7">
+             <property name="horizontalSpacing">
+              <number>15</number>
+             </property>
+             <property name="verticalSpacing">
+              <number>5</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="diffEqLabel">
+               <property name="text">
+                <string>Differential Equation:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="diffEqLineEdit">
+               <property name="placeholderText">
+                <string>e.g., x + y</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="initialXLabel">
+               <property name="text">
+                <string>Initial x:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="initialXLineEdit">
+               <property name="placeholderText">
+                <string>e.g., 0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="initialYLabel">
+               <property name="text">
+                <string>Initial y:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="initialYLineEdit">
+               <property name="placeholderText">
+                <string>e.g., 1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="finalXLabel">
+               <property name="text">
+                <string>Final x:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="finalXLineEdit">
+               <property name="placeholderText">
+                <string>e.g., 2</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="stepsLabel">
+               <property name="text">
+                <string>Number of Steps:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="stepsLineEdit">
+               <property name="placeholderText">
+                <string>e.g., 10</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="methodGroupBox_4">
+             <property name="title">
+              <string>Method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_12">
+              <property name="spacing">
+               <number>10</number>
+              </property>
+              <property name="leftMargin">
+               <number>15</number>
+              </property>
+              <property name="topMargin">
+               <number>15</number>
+              </property>
+              <property name="rightMargin">
+               <number>15</number>
+              </property>
+              <property name="bottomMargin">
+               <number>15</number>
+              </property>
+              <item>
+               <widget class="QRadioButton" name="eulerRadioButton">
+                <property name="text">
+                 <string>Euler's Method</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="ModifiedEulerRadioButton">
+                <property name="text">
+                 <string>Modified Euler's Method</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="calculateButton_4">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+          <zorder>calculateButton_4</zorder>
+          <zorder>methodGroupBox_4</zorder>
+          <zorder>verticalSpacer_4</zorder>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="outputGroupBox_4">
+          <property name="title">
+           <string>Results</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_13">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>15</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>15</number>
+           </property>
+           <property name="bottomMargin">
+            <number>15</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="resultsFrame_4">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QFormLayout" name="formLayout_8">
+              <property name="horizontalSpacing">
+               <number>16</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>16</number>
+              </property>
+              <property name="leftMargin">
+               <number>16</number>
+              </property>
+              <property name="topMargin">
+               <number>16</number>
+              </property>
+              <property name="rightMargin">
+               <number>16</number>
+              </property>
+              <property name="bottomMargin">
+               <number>16</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="methodLabel_4">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Method:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="methodResultLabel_4">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="finalYLabel">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Final y value:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="finalYResultLabel">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="errorLabel_4">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Error Estimate:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="errorResultLabel_4">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="detailsTextEdit_4">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>Detailed calculation steps will appear here...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="curveFittingTab">
+       <attribute name="title">
+        <string>Curve Fitting</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QGroupBox" name="inputGroupBox_5">
+          <property name="title">
+           <string>Input Parameters</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_14">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>15</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>15</number>
+           </property>
+           <property name="bottomMargin">
+            <number>15</number>
+           </property>
+           <item>
+            <layout class="QFormLayout" name="formLayout_9">
+             <property name="horizontalSpacing">
+              <number>15</number>
+             </property>
+             <property name="verticalSpacing">
+              <number>5</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="xValuesLabel_2">
+               <property name="font">
+                <font>
+                 <fontweight>Medium</fontweight>
+                </font>
+               </property>
+               <property name="text">
+                <string>X Values:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="xValuesLineEdit_2">
+               <property name="placeholderText">
+                <string>e.g., 1,2,3,4</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="yValuesLabel_2">
+               <property name="text">
+                <string>Y Values:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="yValuesLineEdit_2">
+               <property name="placeholderText">
+                <string>e.g., 1,4,9,16</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="interpolateLabel_2">
+               <property name="text">
+                <string>n Value</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="nValuesLineEdit_5">
+               <property name="placeholderText">
+                <string>e.g., 2.5</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="methodGroupBox_5">
+             <property name="title">
+              <string>Fit Method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_15">
+              <property name="spacing">
+               <number>10</number>
+              </property>
+              <property name="leftMargin">
+               <number>15</number>
+              </property>
+              <property name="topMargin">
+               <number>15</number>
+              </property>
+              <property name="rightMargin">
+               <number>15</number>
+              </property>
+              <property name="bottomMargin">
+               <number>15</number>
+              </property>
+              <item>
+               <widget class="QRadioButton" name="LinearRadioButton">
+                <property name="text">
+                 <string>Linear</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="ExponentialRadioButton">
+                <property name="text">
+                 <string>Exponential</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="LogarithmicRadioButton">
+                <property name="text">
+                 <string>Logarithmic</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="PowerRadioButton">
+                <property name="text">
+                 <string>Power</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="QuadraticRradioButton">
+                <property name="text">
+                 <string>Quadratic</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="calculateButton_5">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="outputGroupBox_5">
+          <property name="title">
+           <string>Results</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_25">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>15</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>15</number>
+           </property>
+           <property name="bottomMargin">
+            <number>15</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="resultsFrame_8">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QFormLayout" name="formLayout_27">
+              <property name="horizontalSpacing">
+               <number>16</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>16</number>
+              </property>
+              <property name="leftMargin">
+               <number>16</number>
+              </property>
+              <property name="topMargin">
+               <number>16</number>
+              </property>
+              <property name="rightMargin">
+               <number>16</number>
+              </property>
+              <property name="bottomMargin">
+               <number>16</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="methodLabel_8">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Method:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="methodResultLabel_8">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="finalYLabel_5">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Final Value:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="finalYResultLabel_5">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="errorLabel_8">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Error Estimate:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="errorResultLabel_8">
+                <property name="text">
+                 <string>--</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCustomPlot" name="plotWidget" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header location="global">qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
